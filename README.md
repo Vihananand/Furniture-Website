@@ -1,67 +1,133 @@
-# Augusta Luxury Furniture Website
+# Augusta Luxury — Furniture Website
 
-A Next.js static website for a luxury furniture company.
+A modern, responsive **Next.js (App Router)** website for a luxury furniture brand (Augusta Luxury).  
+It includes a curated home page, product collection browsing, individual product-category gallery pages, and a **Custom Order** form that opens WhatsApp with a pre-filled message.
 
-## Features
+**Live site:** https://furniture-website-kappa-five.vercel.app
 
-- Modern responsive design with Tailwind CSS
-- Product showcase with interactive elements
-- Static content for fast loading and simple deployment
-- Mobile-responsive layout
+---
 
-## Development
+## Tech Stack
 
-Start the development server:
+- **Next.js 15** (App Router)
+- **React 19**
+- **Tailwind CSS v4** (via `@tailwindcss/postcss`)
+- **next/image** for optimized images
+- Google fonts via **`next/font`** (Inter + Cormorant Upright)
+
+---
+
+## Pages & Features
+
+### Core pages
+- **Home** (`app/page.js`)
+  - Hero section + featured product links
+- **Products** (`app/products/page.js`)
+  - Category filter (All / Benches & Ottomans / Classic Sofas / Beds & Daybeds / Chaise Lounges & Settees)
+  - Image grid with preview behavior (client-side)
+- **Product gallery pages** (`app/products/*/page.js`)
+  - Dedicated gallery pages such as:
+    - Chesterfield Lounger Sofa
+    - Ottoman Bench Sofa
+    - Carved Sofas
+    - Dining and Lighting
+  - Click-to-preview modal-style behavior (client-side state)
+- **About** (`app/about/page.js`)
+- **Custom Order** (`app/custom-order/page.js`)
+  - Collects name/email/phone/budget/category/message
+  - Opens **WhatsApp Web / WhatsApp App** with a formatted message
+
+### Layout
+- Global layout in `app/layout.js`
+- Shared UI:
+  - `app/components/Navbar.js`
+  - `app/components/Footer.js`
+- Global styles: `app/globals.css`
+
+---
+
+## Getting Started (Local Development)
+
+### 1) Install dependencies
+```bash
+npm install
 ```
+
+### 2) Run the dev server
+```bash
 npm run dev
 ```
 
-The site will be available at http://localhost:3000
+Then open: http://localhost:3000
+
+---
 
 ## Production Build
 
-```
-npm run build
-npm start
-```
-
-## Technologies Used
-
-- Next.js 15
-- Tailwind CSS
-- React 19
-
-## Getting Started
-
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Images
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses:
+- Local images from the `public/` folder (example paths like `/images/...`)
+- Remote images are allowed from:
+  - `images.unsplash.com`
+  - `upload.wikimedia.org`
 
-## Learn More
+(See `next.config.mjs`.)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure (High-level)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+app/
+  layout.js
+  globals.css
+  page.js
+  about/page.js
+  products/
+    page.js
+    chesterfield-lounger-sofa/page.js
+    ottoman-bench-sofa/page.js
+    carved-sofas/page.js
+    dining-and-lighting/page.js
+  custom-order/page.js
+  components/
+    Navbar.js
+    Footer.js
+    Images.js
+public/
+  (static assets like logo.svg, images, etc.)
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This repo is ready to deploy on **Vercel** as a standard Next.js app.
+
+Typical flow:
+1. Push to GitHub
+2. Import repository into Vercel
+3. Build command: `next build`
+4. Output: Next.js default
+
+---
+
+## Notes / Customization
+
+- To update branding text and metadata, edit: `app/layout.js` (title/description)
+- To modify navigation, edit: `app/components/Navbar.js`
+- To change the WhatsApp phone number or message format, edit: `app/custom-order/page.js`
+
+---
+
+## License
+
+No license specified yet. If you want, add a `LICENSE` file (MIT is common for portfolio projects).
