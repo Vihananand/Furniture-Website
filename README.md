@@ -3,7 +3,7 @@
 A modern, responsive **Next.js (App Router)** website for a luxury furniture brand (Augusta Luxury).  
 It includes a curated home page, product collection browsing, individual product-category gallery pages, and a **Custom Order** form that opens WhatsApp with a pre-filled message.
 
-**Live site:** https://furniture-website-kappa-five.vercel.app
+**Live site:** [https://furniture-website-kappa-five.vercel.app](https://www.augustaluxury.in/about)
 
 ---
 
